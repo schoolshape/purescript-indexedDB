@@ -1,16 +1,16 @@
-const errorHandler = function errorHandler(cb) {
+var errorHandler = function errorHandler(cb) {
     return function _handler(e) {
         cb(e.target.error);
     };
 };
 
-const successHandler = function successHandler(cb) {
+var successHandler = function successHandler(cb) {
     return function _handler(e) {
         cb(e.target.result);
     };
 };
 
-const toArray = function toArray(xs) {
+var toArray = function toArray(xs) {
     return Array.prototype.slice.apply(xs);
 };
 
@@ -18,7 +18,7 @@ const toArray = function toArray(xs) {
 exports._add = function _add(store, value, key) {
     return function aff(error, success) {
         try {
-            const request = store.add(value, key || undefined);
+            var request = store.add(value, key || undefined);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -38,7 +38,7 @@ exports._autoIncrement = function _autoIncrement(store) {
 exports._clear = function _clear(store) {
     return function aff(error, success) {
         try {
-            const request = store.clear();
+            var request = store.clear();
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -69,7 +69,7 @@ exports._createIndex = function _createIndex(store, name, path, params) {
                 keyPath = path;
             }
 
-            const index = store.createIndex(name, keyPath, params);
+            var index = store.createIndex(name, keyPath, params);
             success(index);
         } catch (e) {
             error(e);
@@ -99,7 +99,7 @@ exports._deleteIndex = function _deleteIndex(store, name) {
 exports._delete = function _delete(store, query) {
     return function aff(error, success) {
         try {
-            const request = store.delete(query);
+            var request = store.delete(query);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -115,7 +115,7 @@ exports._delete = function _delete(store, query) {
 exports._index = function _index(store, name) {
     return function aff(error, success) {
         try {
-            const index = store.index(name);
+            var index = store.index(name);
             success(index);
         } catch (e) {
             error(e);
@@ -132,7 +132,7 @@ exports._indexNames = function _indexNames(store) {
 };
 
 exports._keyPath = function _keyPath(store) {
-    const path = store.keyPath;
+    var path = store.keyPath;
 
     if (Array.isArray(path)) {
         return path;
@@ -152,7 +152,7 @@ exports._name = function _name(store) {
 exports._put = function _put(store, value, key) {
     return function aff(error, success) {
         try {
-            const request = store.put(value, key || undefined);
+            var request = store.put(value, key || undefined);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {

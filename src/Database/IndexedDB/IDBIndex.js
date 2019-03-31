@@ -1,10 +1,10 @@
-const errorHandler = function errorHandler(cb) {
+var errorHandler = function errorHandler(cb) {
     return function _handler(e) {
         cb(e.target.error);
     };
 };
 
-const successHandler = function successHandler(cb) {
+var successHandler = function successHandler(cb) {
     return function _handler(e) {
         cb(e.target.result);
     };
@@ -12,7 +12,7 @@ const successHandler = function successHandler(cb) {
 
 
 exports._keyPath = function _keyPath(index) {
-    const path = index.keyPath;
+    var path = index.keyPath;
 
     if (Array.isArray(path)) {
         return path;
@@ -44,7 +44,7 @@ exports._unique = function _unique(index) {
 exports._count = function _count(index, query) {
     return function aff(error, success) {
         try {
-            const request = index.count(query);
+            var request = index.count(query);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -60,7 +60,7 @@ exports._count = function _count(index, query) {
 exports._get = function _get(index, range) {
     return function aff(error, success) {
         try {
-            const request = index.get(range);
+            var request = index.get(range);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -81,7 +81,7 @@ exports._get = function _get(index, range) {
  * different types.
 exports._getAll = function _getAll(index, query, count) {
     return function aff(error, success) {
-        const request = index.getAll(query, count);
+        var request = index.getAll(query, count);
         request.onsuccess = successHandler(success);
         request.onerror = errorHandler(error);
     };
@@ -91,7 +91,7 @@ exports._getAll = function _getAll(index, query, count) {
 exports._getAllKeys = function _getAllKeys(index, range, count) {
     return function aff(error, success) {
         try {
-            const request = index.getAllKeys(range, count || undefined);
+            var request = index.getAllKeys(range, count || undefined);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -107,7 +107,7 @@ exports._getAllKeys = function _getAllKeys(index, range, count) {
 exports._getKey = function _getKey(index, range) {
     return function aff(error, success) {
         try {
-            const request = index.getKey(range);
+            var request = index.getKey(range);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {
@@ -123,7 +123,7 @@ exports._getKey = function _getKey(index, range) {
 exports._openCursor = function _openCursor(index, query, dir, cb) {
     return function aff(error, success) {
         try {
-            const request = index.openCursor(query, dir);
+            var request = index.openCursor(query, dir);
             request.onsuccess = function onSuccess(e) {
                 if (e.target.result != null) {
                     cb.onSuccess(e.target.result)();
@@ -148,7 +148,7 @@ exports._openCursor = function _openCursor(index, query, dir, cb) {
 exports._openKeyCursor = function _openKeyCursor(index, query, dir, cb) {
     return function aff(error, success) {
         try {
-            const request = index.openKeyCursor(query, dir);
+            var request = index.openKeyCursor(query, dir);
             request.onsuccess = function onSuccess(e) {
                 if (e.target.result != null) {
                     cb.onSuccess(e.target.result)();

@@ -1,4 +1,4 @@
-const toArray = function toArray(xs) {
+var toArray = function toArray(xs) {
     return Array.prototype.slice.apply(xs);
 };
 
@@ -37,7 +37,7 @@ exports._createObjectStore = function _createObjectStore(db, name, opts) {
                 keyPath = opts.keyPath;
             }
 
-            const store = db.createObjectStore(name, {
+            var store = db.createObjectStore(name, {
                 autoIncrement: opts.autoIncrement,
                 keyPath: keyPath,
             });

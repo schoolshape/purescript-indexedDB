@@ -1,4 +1,4 @@
-const toArray = function toArray(xs) {
+var toArray = function toArray(xs) {
     return Array.prototype.slice.apply(xs);
 };
 

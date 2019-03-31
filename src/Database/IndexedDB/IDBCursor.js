@@ -1,10 +1,10 @@
-const errorHandler = function errorHandler(cb) {
+var errorHandler = function errorHandler(cb) {
     return function _handler(e) {
         cb(e.target.error);
     };
 };
 
-const successHandler = function successHandler(cb) {
+var successHandler = function successHandler(cb) {
     return function _handler(e) {
         cb(e.target.result);
     };
@@ -126,7 +126,7 @@ exports._source = function _source(IDBObjectStore, IDBIndex, cursor) {
 exports._update = function _update(cursor, value) {
     return function aff(error, success) {
         try {
-            const request = cursor.update(value);
+            var request = cursor.update(value);
             request.onsuccess = successHandler(success);
             request.onerror = errorHandler(error);
         } catch (e) {

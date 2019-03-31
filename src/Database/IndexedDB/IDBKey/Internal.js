@@ -7,15 +7,15 @@ exports._readDateTime = function _readDateTime(parse, right, left, date) {
         return left(typeof date);
     }
 
-    const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const d = date.getDate();
-    const h = date.getHours();
-    const mi = date.getMinutes();
-    const s = date.getSeconds();
-    const ms = date.getMilliseconds();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var mi = date.getMinutes();
+    var s = date.getSeconds();
+    var ms = date.getMilliseconds();
 
-    const mdate = parse(y)(m)(d)(h)(mi)(s)(ms);
+    var mdate = parse(y)(m)(d)(h)(mi)(s)(ms);
 
     if (mdate == null) {
         return left(typeof date); // TODO Could return better error
@@ -25,13 +25,13 @@ exports._readDateTime = function _readDateTime(parse, right, left, date) {
 };
 
 exports._unsafeReadDateTime = function _unsafeReadDateTime(parse, date) {
-    const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const d = date.getDate();
-    const h = date.getHours();
-    const mi = date.getMinutes();
-    const s = date.getSeconds();
-    const ms = date.getMilliseconds();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var mi = date.getMinutes();
+    var s = date.getSeconds();
+    var ms = date.getMilliseconds();
 
     return parse(y)(m)(d)(h)(mi)(s)(ms);
 };

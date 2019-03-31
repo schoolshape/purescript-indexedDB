@@ -36,7 +36,7 @@ exports._mode = function _mode(ReadOnly, ReadWrite, VersionChange, tx) {
 exports._objectStore = function _objectStore(tx, name) {
     return function aff(error, success) {
         try {
-            const store = tx.objectStore(name);
+            var store = tx.objectStore(name);
             success(store);
         } catch (e) {
             error(e);
