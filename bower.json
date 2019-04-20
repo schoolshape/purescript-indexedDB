@@ -25,9 +25,9 @@
     "url": "git://github.com/truqu/purescript-indexedDB.git"
   },
   "dependencies": {
-    "purescript-aff": "^5.0.2",
+    "purescript-aff": "^5.1.1",
     "purescript-datetime": "^4.0.0",
-    "purescript-effect": "^2.0.0",
+    "purescript-effect": "^2.0.1",
     "purescript-exceptions": "^4.0.0",
     "purescript-foreign": "^5.0.0",
     "purescript-maybe": "^4.0.0",
